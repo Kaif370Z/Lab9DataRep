@@ -5,6 +5,8 @@ import { Content } from './components/content';
 import { Footer } from './components/footer';
 import { Header } from './components/header';
 import { Create } from './components/create';
+import { FCreate } from './components/fcreate';
+import { Edit } from './components/edit';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -28,6 +30,7 @@ class App extends React.Component {
                 <Nav.Link href="/">Home</Nav.Link>
                 <Nav.Link href="/read">Read</Nav.Link>
                 <Nav.Link href="/create">Create</Nav.Link>
+                <Nav.Link href="/fun">FCreate</Nav.Link>
               </Nav>
             </Container>
           </Navbar>
@@ -35,7 +38,8 @@ class App extends React.Component {
             <Route path='/' element={<Content></Content>}></Route>
             <Route path='/read' element={<Read></Read>}></Route>
             <Route path='/create' element={<Create></Create>}></Route>
-
+            <Route path='/fun' element={<FCreate></FCreate>}></Route>
+            <Route path='/edit/:id' element={<Edit></Edit>}></Route>
           </Routes>
         </div>
       </Router>

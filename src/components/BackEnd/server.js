@@ -105,7 +105,14 @@ app.get('/api/book/:id', (req, res)=>{
 bookModel.findById(req.params.id,(error, data)=>{
   res.json(data);
 })
-res.send('Data');
+})
+
+app.put('/api/book/:id', (req,res)=>{
+  console.log('Update: '+req.params.id)
+  bookModel.findByIdAndUpdate(req.params.id, req.body, {new:true},
+    (error, data)=>{
+      res.send(data);
+    })
 })
 
 // get the server up and running
