@@ -101,18 +101,25 @@ app.post('/name', (req, res)=>{
 
 app.get('/api/book/:id', (req, res)=>{
   console.log(req.params.id);
-
+//find a book
 bookModel.findById(req.params.id,(error, data)=>{
   res.json(data);
 })
 })
-
+//update a book
 app.put('/api/book/:id', (req,res)=>{
   console.log('Update: '+req.params.id)
   bookModel.findByIdAndUpdate(req.params.id, req.body, {new:true},
     (error, data)=>{
       res.send(data);
     })
+})
+//delete a book
+app.delete('/api/book/:id', (req,res)=>{
+  console.log("Deleting: "+req.params.id);
+  bookModel.findByIdAndDelete({_id:req.params.id},(error,data)=>{
+    res.send(data);
+  })
 })
 
 // get the server up and running
